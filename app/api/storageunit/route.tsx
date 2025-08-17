@@ -4,7 +4,7 @@ import { generateObject } from 'ai';
 import { nanoid } from 'nanoid';
 import { z } from 'zod';
 import { kv } from '@vercel/kv';
-import { extractSessionId, getStorageUnits } from '@/lib/elephound_lib';
+import { extractSessionId, getStorageUnits } from '@/lib/unspoken_lib';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;

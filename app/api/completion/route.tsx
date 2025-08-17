@@ -1,4 +1,4 @@
-import { extractParam, extractSessionId, getStorageUnit, getStorageUnits } from '@/lib/elephound_lib';
+import { extractParam, extractSessionId, getStorageUnit, getStorageUnits } from '@/lib/unspoken_lib';
 import { ItemSchema } from '@/schemas/item';
 import { StorageUnitSchema } from '@/schemas/storageunit';
 import { openai } from '@ai-sdk/openai';
