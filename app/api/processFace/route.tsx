@@ -17,11 +17,11 @@ export async function POST(req: Request) {
 
     console.error("body " + JSON.stringify(body));
     // Expect body: { image_url: "https://..." } OR { image_base64: "data:image/png;base64,..." }
-    const { image_url, image_base64 } = body;
+    const { image_base64 } = body;
 
-    if (!image_url && !image_base64) {
+    if (!image_base64) {
       return Response.json(
-        { error: "Please provide image_url or image_base64 in request body." },
+        { error: "Please provide or image_base64 in request body." },
         { status: 400 }
       );
     }
@@ -36,9 +36,7 @@ export async function POST(req: Request) {
         role: "user",
         content: [
           { type: "text", text: "Classify the emotion in this image." },
-          image_url
-            ? { type: "image_url", image_url: { url: image_url } }
-            : { type: "image_url", image_url: { url: image_base64 } },
+          { type: 'image', image: image_base64 },
         ],
       },
     ];
