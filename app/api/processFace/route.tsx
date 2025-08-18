@@ -32,11 +32,11 @@ export async function POST(req: Request) {
       },
       {
         role: "user",
-        content: [
-          { type: "text", text: "Classify the emotion in this image." },
+        content: [ `Tell me something smart.`,
+        /*  { type: "text", text: "Classify the emotion in this image." },
           image_url
             ? { type: "image_url", image_url: { url: image_url } }
-            : { type: "image_url", image_url: { url: image_base64 } },
+            : { type: "image_url", image_url: { url: image_base64 } }, */
         ],
       },
     ];
