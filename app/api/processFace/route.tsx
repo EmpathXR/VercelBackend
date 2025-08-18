@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    console.log("body " + JSON.stringify(body));
+    console.error("body " + JSON.stringify(body));
     // Expect body: { image_url: "https://..." } OR { image_base64: "data:image/png;base64,..." }
     const { image_url, image_base64 } = body;
 
