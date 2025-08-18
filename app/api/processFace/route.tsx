@@ -12,8 +12,10 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
+
     const body = await req.json();
 
+    console.log("body " + JSON.stringify(body));
     // Expect body: { image_url: "https://..." } OR { image_base64: "data:image/png;base64,..." }
     const { image_url, image_base64 } = body;
 
@@ -32,11 +34,11 @@ export async function POST(req: Request) {
       },
       {
         role: "user",
-        content: [ `Tell me something smart.`,
-        /*  { type: "text", text: "Classify the emotion in this image." },
+        content: [
+          { type: "text", text: "Classify the emotion in this image." },
           image_url
             ? { type: "image_url", image_url: { url: image_url } }
-            : { type: "image_url", image_url: { url: image_base64 } }, */
+            : { type: "image_url", image_url: { url: image_base64 } },
         ],
       },
     ];
