@@ -35,11 +35,13 @@ export async function POST(req: Request) {
         content: [
           { type: "text", text: "Classify the emotion in this image." },
           image_url
-            ? { type: "image_url", image_url }
-            : { type: "image_url", image_url: image_base64 },
+            ? { type: "image_url", image_url: { url: image_url } }
+            : { type: "image_url", image_url: { url: image_base64 } },
         ],
       },
     ];
+
+
 
     const { object } = await generateObject({
       model: openai("gpt-4o"), // vision-enabled
