@@ -44,7 +44,10 @@ export async function POST(req: Request) {
 
 
     const { object } = await generateObject({
-      model: openai("gpt-4o"), // vision-enabled
+      // gpt-5-mini for cheaper but less fine grained response (for our states this should be enough though) 
+      // gpt-5 better, but way more expensive
+      // gpt-4o for the old model
+      model: openai("gpt-5-mini"), // vision-enabled
       schema: z.object({
         emotion: z.enum(["neutral", "happy", "sad", "angry"]),
       }),
